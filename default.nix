@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
   buildPhase = "true";
   makeFlags = ["prefix=$(out)"];
   postInstall = let path = lib.makeBinPath [
-    seth curl jshon gnused which perl datamash
+    seth curl jshon gnused which perl
   ]; in ''
     wrapProgram "$out/bin/chief" --prefix PATH : "${path}"
   '';
