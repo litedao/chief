@@ -6,6 +6,11 @@
 set -e
 
 chief=$(seth --to-address "$1")
+echo "--- Approving chief to operate on MKR ---"
 chief rely-gov "$chief"
+sleep 10
+echo "--- Locking MKR ---"
 chief lock-gov "$chief"
+sleep 10
+echo "--- Voting on slate ---"
 chief vote "$chief" "$2"
