@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### chief-rely-iou -- approve ds-chief for iou token
+### Usage: chief rely-iou <ds-chief>
+###
+### approve ds-chief for iou token
+set -e
+
+iou=$(chief iou "$1")
+(set -x; seth send "$iou" 'approve(address)' "$1")

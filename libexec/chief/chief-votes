@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+### chief-votes -- votes an address to be the hat
+### Usage: chief votes <ds-chief> <address>
+###
+### get the 
+set -e
+
+seth call "$1" 'votes(address)(bytes32)' "$2"

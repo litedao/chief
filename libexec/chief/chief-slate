@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+### chief-slate -- votes an address to be the hat
+### Usage: chief slate <ds-chief> <address>
+###
+### get the 
+set -e
+
+seth call "$1" 'slates(bytes32)(address[])' "$2"

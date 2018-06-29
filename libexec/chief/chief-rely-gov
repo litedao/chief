@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### chief-rely-gov -- approve ds-chief for gov token
+### Usage: chief rely-gov <ds-chief>
+###
+### approve ds-chief for gov token
+set -e
+
+gov=$(chief gov "$1")
+(set -x; seth send "$gov" 'approve(address)' "$1")

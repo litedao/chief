@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### chief-gov -- returns governance token
+### Usage: chief gov <ds-chief>
+###
+### Returns governance token
+set -e
+
+gov=$(seth call "$1" 'GOV()(address)')
+seth --to-address "$gov"

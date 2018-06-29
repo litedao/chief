@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+### chief-vote -- vote on a slate
+### Usage: chief vote <ds-chief> <slate>
+###
+### vote on a slate
+set -e
+
+seth send "$1" 'vote(bytes32)' "$2"

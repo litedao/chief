@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### chief-iou -- returns IOU token
+### Usage: chief iou <ds-chief>
+###
+### Returns IOU token
+set -e
+
+iou=$(seth call "$1" 'IOU()(address)')
+seth --to-address "$iou"

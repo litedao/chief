@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+### chief-zomg -- rely, lock and vote all in one!
+### Usage: chief zomg <ds-chief> <slate>
+###
+### rely, lock and vote all in one!
+set -e
+
+chief=$(seth --to-address "$1")
+chief rely-gov "$chief"
+chief lock-gov "$chief"
+chief vote "$chief" "$2"

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+### chief-lock-gov -- locks all your gov tokens
+### Usage: chief lock-gov <ds-chief>
+###
+### locks all your gov tokens
+set -e
+
+gov=$(chief gov "$1")
+balance=$(seth call "$gov" 'balanceOf(address)(uint256)' "$ETH_FROM")
+seth send "$1" 'lock(uint256)' "$balance"

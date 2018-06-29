@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+### chief-lift -- lift an address to be the hat
+### Usage: chief lift <ds-chief> <address>
+###
+### Lift an address to be the new hat
+set -e
+
+(set -x; seth send "$1" 'lift(address)' "$2")

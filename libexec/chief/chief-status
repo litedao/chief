@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+### chief-status -- check chief status
+### Usage: chief status <ds-chief>
+###
+### Prints chief status
+set -e
+
+hat=$(chief hat "$1")
+gov=$(chief gov "$1")
+iou=$(chief iou "$1")
+
+balance=$(seth call "$gov" 'balanceOf(address)(uint256)' "$2" | seth --to-dec | seth --to-fix 18 "$(cat)")
+locked=$(seth call "$iou" 'balanceOf(address)(uint256)' "$2" | seth --to-dec | seth --to-fix 18 "$(cat)")
+
+
+
+echo "Current hat: $hat"
+echo "GOV token:   $gov"
+echo "IOU token:   $iou"
+echo ""
+echo "Available MKR: $balance"
+echo "Locked    MKR: $locked"

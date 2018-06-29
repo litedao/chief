@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### chief-hat -- returns current hat
+### Usage: chief hat <ds-chief>
+###
+### Returns current hat
+set -e
+
+hat=$(seth call "$1" 'hat()(address)')
+seth --to-address "$hat"
